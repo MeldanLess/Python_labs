@@ -2,8 +2,8 @@ import math
 
 class Shape:
     def __init__(self, shape_id):
-        self._shape_id = shape_id  # Приватный атрибут (protected, но доступен в наследниках)
-        self.__shape_type = "Undefined"  # Защищённый (private, доступен только внутри класса)
+        self._shape_id = shape_id  # Защищённый (protected, но доступен в наследниках)
+        self.__shape_type = "Undefined"  # Приватный (private, доступен только внутри класса)
 
     def get_shape_id(self):
         return self._shape_id
@@ -48,7 +48,7 @@ class Quad(Shape):
             print("Попытка установки некорректной длины")
             raise ValueError("Длина стороны квадрата должна быть положительной")  
         self._side_length = sideLength  
-        # print("Новая длина установлена")  
+        
 
     def move(self, dx, dy):
         shift_x, shift_y = dx, dy
