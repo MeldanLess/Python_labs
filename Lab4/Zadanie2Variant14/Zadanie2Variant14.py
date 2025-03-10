@@ -7,4 +7,4 @@ def solve(f):
         res = sum(1 for w in lst if len(w) > 1 and w[0] == w[-1])
     return res
 
-print(solve("/mnt/data/text.txt"))
+print(solve("D:\\1_Univer\\Python\\text.txt"))
