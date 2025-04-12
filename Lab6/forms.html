@@ -1,37 +1,81 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Добавление записей</title>
+    <title>Добавление записей и поиск</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1>Добавление записей</h1>
-    <!-- Форма для добавления стиля -->
-    <h2>Добавить стиль</h2>
-    <form action="/cgi-bin/insert_style.py" method="post">
-      Название: <input type="text" name="name"><br>
-      Описание: <input type="text" name="descr"><br>
-      <input type="submit" value="Добавить стиль">
-    </form>
+    <header>
+      <h1>База данных Архитектуры</h1>
+    </header>
+    <div class="container">
+      <h2>Добавление записей</h2>
 
-    <!-- Форма для добавления архитектора -->
-    <h2>Добавить архитектора</h2>
-    <form action="/cgi-bin/insert_arch.py" method="post">
-      ФИО: <input type="text" name="name"><br>
-      Год рождения: <input type="text" name="birth"><br>
-      Год смерти: <input type="text" name="death"><br>
-      <input type="submit" value="Добавить архитектора">
-    </form>
+      <!-- Форма для добавления стиля -->
+      <h3>Добавить стиль</h3>
+      <form action="/cgi-bin/insert_style.py" method="post">
+        <label for="style_name">Название стиля:</label>
+        <input type="text" id="style_name" name="name" required>
+        
+        <label for="style_descr">Описание стиля:</label>
+        <textarea id="style_descr" name="descr" rows="3" required></textarea>
+        
+        <input type="submit" value="Добавить стиль">
+      </form>
 
-    <!-- Форма для добавления здания -->
-    <h2>Добавить здание</h2>
-    <form action="/cgi-bin/insert_build.py" method="post">
-      Название: <input type="text" name="name"><br>
-      Локация: <input type="text" name="loc"><br>
-      Год постройки: <input type="text" name="year"><br>
-      ID стиля: <input type="text" name="style_id"><br>
-      ID архитектора: <input type="text" name="arch_id"><br>
-      Количество этажей: <input type="text" name="floors"><br>
-      <input type="submit" value="Добавить здание">
-    </form>
+      <!-- Форма для добавления архитектора -->
+      <h3>Добавить архитектора</h3>
+      <form action="/cgi-bin/insert_arch.py" method="post">
+        <label for="arch_name">ФИО архитектора:</label>
+        <input type="text" id="arch_name" name="name" required>
+        
+        <label for="arch_birth">Год рождения:</label>
+        <input type="number" id="arch_birth" name="birth" required>
+        
+        <label for="arch_death">Год смерти:</label>
+        <input type="number" id="arch_death" name="death">
+        
+        <input type="submit" value="Добавить архитектора">
+      </form>
+
+      <!-- Форма для добавления здания -->
+      <h3>Добавить здание</h3>
+      <form action="/cgi-bin/insert_build.py" method="post">
+        <label for="build_name">Название здания:</label>
+        <input type="text" id="build_name" name="name" required>
+        
+        <label for="build_loc">Локация:</label>
+        <input type="text" id="build_loc" name="loc" required>
+        
+        <label for="build_year">Год постройки:</label>
+        <input type="number" id="build_year" name="year" required>
+        
+        <label for="build_style">ID стиля:</label>
+        <input type="number" id="build_style" name="style_id" required>
+        
+        <label for="build_arch">ID архитектора:</label>
+        <input type="number" id="build_arch" name="arch_id" required>
+        
+        <label for="build_floors">Количество этажей:</label>
+        <input type="number" id="build_floors" name="floors" required>
+        
+        <input type="submit" value="Добавить здание">
+      </form>
+
+      <!-- Форма поиска записей -->
+      <h2>Поиск записей</h2>
+      <form action="/cgi-bin/search.py" method="get">
+        <label for="search_query">Поисковый запрос (здания, стили, архитекторы):</label>
+        <input type="text" id="search_query" name="q" required>
+        <input type="submit" value="Найти">
+      </form>
+
+      <!-- Ссылки на другие страницы -->
+      <div>
+        <p><a href="/cgi-bin/stats.py">Статистика</a></p>
+        <p><a href="/cgi-bin/view_data.py">Просмотр всех записей</a> <!-- если такой скрипт есть --></p>
+      </div>
+    </div>
   </body>
 </html>

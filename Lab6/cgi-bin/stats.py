@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sqlite3, cgitb
+import sys, cgi, cgitb, sqlite3
 cgitb.enable()
+sys.stdout.reconfigure(encoding='utf-8')
 
 print("Content-Type: text/html;charset=utf-8")
 print()
