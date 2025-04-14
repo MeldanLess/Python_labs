@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<buildings>
+  <building>
+    <name>Дом Эрг</name>
+    <loc>Чикаго</loc>
+    <year>1905</year>
+    <style_id>2</style_id>
+    <arch_id>2</arch_id>
+    <floors>10</floors>
+  </building>
+  <building>
+    <name>Вилла Савой</name>
+    <loc>Париж</loc>
+    <year>1931</year>
+    <style_id>3</style_id>
+    <arch_id>3</arch_id>
+    <floors>2</floors>
+  </building>
+</buildings>

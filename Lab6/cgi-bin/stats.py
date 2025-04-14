@@ -40,7 +40,15 @@ q3 = cur.fetchall()
 
 con.close()
 
-print("<html><head><meta charset='utf-8'><title>Статистика</title></head><body>")
+print("<html>")
+print("<head>")
+print("<meta charset='utf-8'>")
+print("<title>Статистика</title>")
+print("<link rel='stylesheet' type='text/css' href='/style.css'>")
+print("</head>")
+print("<body>")
+print("<header><h1>Сайт по Архитектуре</h1></header>")
+print("<div class='container'>")
 print("<h1>Статистические запросы</h1>")
 
 print("<h2>Здания по стилям</h2>")
@@ -61,4 +69,5 @@ for r in q3:
     print("<tr><td>%s</td><td>%s</td></tr>" % r)
 print("</table>")
 
+print("</div>")
 print("</body></html>")

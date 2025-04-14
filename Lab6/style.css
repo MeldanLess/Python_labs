@@ -7,11 +7,22 @@ body {
     color: #333;
 }
 
+/* Общий стиль для заголовков (применяется вне header) */
+h1, h2 {
+    color: #2c3e50;
+}
+
+/* Стили для шапки страницы */
 header {
     background: #2c3e50;
-    color: #fff;
     padding: 20px 40px;
     text-align: center;
+}
+
+/* Переопределение цвета заголовков внутри header */
+header h1,
+header h2 {
+    color: #fff;
 }
 
 .container {
@@ -21,10 +32,6 @@ header {
     background: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2 {
-    color: #2c3e50;
 }
 
 form {

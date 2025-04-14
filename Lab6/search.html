@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Сайт по Архитектуре - Поиск записей</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+      /* Дополнительное оформление для ссылок-кнопок */
+      .btn-link {
+         display: inline-block;
+         background-color: #2c3e50;
+         color: white;
+         padding: 10px 15px;
+         text-decoration: none;
+         border-radius: 4px;
+         margin: 5px 0;
+         transition: background-color 0.3s ease;
+      }
+      .btn-link:hover {
+         background-color: #34495e;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+   <h1 style="margin-bottom: 5px;">АрхБаза</h1>
+   <p style="margin: 0;">Поиск архитектурных объектов</p>
+    </header>
+    <div class="container">
+      <h2>Поиск записей</h2>
+      <form action="/cgi-bin/search.py" method="get">
+        <label for="search_query">Поисковый запрос (здания, стили, архитекторы):</label>
+        <input type="text" id="search_query" name="q" required>
+        <input type="submit" value="Найти">
+      </form>
+
+      <!-- Ссылки на другие страницы (в виде кнопок) -->
+      <div>
+        <a class="btn-link" href="/cgi-bin/stats.py">Статистика</a>
+        <a class="btn-link" href="/cgi-bin/view_data.py">Просмотр всех записей</a>
+        <a class="btn-link" href="/cgi-bin/export_xml.py">Экспорт в XML</a>
+        <a class="btn-link" href="/cgi-bin/import_xml.py">Импорт из XML</a>
+        <!-- Ссылка для перехода на страницу добавления записей -->
+        <a class="btn-link" href="add.html">Перейти к добавлению записей</a>
+        <!-- Кнопка "Вернуться на главное" -->
+        <a class="btn-link" href="forms.html">Вернуться на главное</a>
+      </div>
+    </div>
+  </body>
+</html>
