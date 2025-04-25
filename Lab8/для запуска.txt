@@ -1,0 +1,1 @@
+python osm_shop_counter.py 14.osm "14 - 2.osm"
