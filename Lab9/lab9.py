@@ -9,25 +9,25 @@ def parse_time(s: str) -> timedelta:
     sec = int(re.search(r'(\d+)\s*сек', s).group(1)) if re.search(r'(\d+)\s*сек', s) else 0
     return timedelta(hours=h, minutes=m, seconds=sec)
 
-# 1. читаем оба файла (при желании можно объединить их через pd.concat)
+# читаю оба файла 
 df1 = pd.read_csv('14 - 1.csv', sep=',', quotechar='"')
 df2 = pd.read_csv('14 - 2.csv', sep=',', quotechar='"')
 df = pd.concat([df1, df2], ignore_index=True)
 
-# 2. преобразуем оценки
+# преобразую оценки
 df['Score'] = df['Оценка/10,00'].str.replace(',', '.').astype(float)
 
-# 3. парсим время
+# время
 df['TimeDelta'] = df['Затраченное время'].apply(parse_time)
 
-# 4. задаём порог
-threshold_str = '21 мин. 0 сек.'   # поменяйте при необходимости
+# задаю порог
+threshold_str = '21 мин. 0 сек.'   
 threshold = parse_time(threshold_str)
 
-# 5. фильтруем
+# фильтрую
 filtered = df[(df['TimeDelta'] > threshold) & (df['Score'] == 9.0)]
 
-# 6. выводим
+
 print(f"Пороговое время: {threshold_str}")
 print(f"Найдено участников: {len(filtered)}\n")
 print(filtered[['Фамилия', 'Имя', 'Затраченное время', 'Оценка/10,00']].to_string(index=False))
